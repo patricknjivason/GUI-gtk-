@@ -21,11 +21,18 @@ void creating(GtkApplication *app ,gpointer* user_data)
 
   GtkWidget *vbox=gtk_box_new(GTK_ORIENTATION_VERTICALE,20);
   gtk_container_add(GTK_CONTAINER(window_one.window),vbox);
+
+  GtkWidget *message=gtk_label_set_text(" Hello workd ");
+  gtk_widget_set_valign(message,GTK_ALIGN_CENTER);
+  gtk_widget_set_halign(message,GTK_ALIGN_CETNER);
+  gtk_box_pack_start(GTK_BOX(vbox),message,FALSE,FALSE,0);
+  
   window_one.boutton=gtk_button_new_with_label("cliquer pour sortir");
   gtk_widget_set_valign(widget_one.window,GTK_ALIGN_END);
   gtk_widget_set_halign(widget_one.window,GTK_ALIGN_END);
   gtk_box_pack_start(GTK_BOX(vbox),window_one.button,TRUE,TRUE,0);
-   gtk_widget_show_all(window_one.window);
+  
+  gtk_widget_show_all(window_one.window);
   g_signal_connect(window_one,"clicked",G_CALLBACK(destroying),window_one);
 }
 int main()
